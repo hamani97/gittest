@@ -1,8 +1,190 @@
-<html>
-    <body>
-        <h2>Hello, welcome..</h2>
-        <p>
-            <a href="./hama.html">하마나라</a>
-        </p>
-    </body>
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="MobileOptimized" content="240" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="page-exit"  content="blendtrans(duration=0.1)" />
+    <meta http-equiv="page-enter" content="blendtrans(duration=0.2)" />
+
+    <title> Hamanote </title>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" media="screen, print" />
+    <link rel="shortcut icon" href="/assets/images/hama-favi.ico" type="image/x-icon" />
+    <link rel="icon" href="/assets/images/hama-favi.ico" type="image/x-icon" />
+
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/common.js"></script>
+    <script type="text/javascript">
+    <!--
+    var csrf_value = "";
+    //-->
+    </script>
+
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+		<div class="container">
+			<a class="navbar-brand" href="javascript:;" onclick="goHome()">하마노트</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="javascript:;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="">
+						커뮤니티
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="javascript:;">Action</a>
+							<a class="dropdown-item" href="javascript:;">Another action</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="javascript:;">Something else here</a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" href="javascript:;" tabindex="-1" aria-disabled="true" onclick="goScrap()">즐겨찾기</a>
+					</li>
+				</ul>
+				<form class="form-inline my-2 my-lg-0">
+					<div class="input-group">
+						<input class="form-control" type="search" name="searchText" id="searchText" placeholder="검색어를 입력하세요" aria-label="Search">
+						<div class="input-group-append" onclick="searchStart()">
+							<div class="input-group-text"><i class="fas fa-search"></i></div>
+						</div>
+					</div>
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="javascript:;" role="button" onclick="memberLogin()">로그인</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="javascript:;" role="button" onclick="memberJoin()">회원가입</a>
+					</li>
+				</ul>
+				</form>
+			</div>
+		</div>
+	</nav>
+
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+	<div class="jumbotron">
+		<div class="container">
+			<h1>환영합니다!</h1>
+			<p>회원가입을 하시고 개인 노트를 작성하세요. 잘 작성한 글을 회원간 공유도 할수 있어요!!<br />회원가입은 무료입니다. 비회원은 다른 사람이 공개한 글을 읽을수만 있어요~</p>
+			<p><a class="btn btn-primary btn-lg" href="javascript:;" role="button" onclick="memberJoin()">가입하기 &raquo;</a></p>
+		</div>
+	</div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2014</p>
+      </footer>
+    </div> <!-- /container -->
+    <div class="container">
+	</div>
+	<footer class="container-fluid" style="background:#393939">
+
+		<div class="container">
+
+		<div class="row">
+			<div class="col-md-3">
+						<h4>About US</h4>
+
+						<div class="link" onclick="goCommon('/terms/service')">서비스이용안내</div>
+						<div class="link" onclick="goCommon('/terms/using')">이용약관</div>
+						<div class="link" onclick="goCommon('/terms/privacy')">개인정보보호정책</div>
+			</div>
+			<div class="col-md-3">
+						<h4>RECOMMEND</h4>
+
+						<div class="link" onclick="goCommon('/sample')">Welcome</div>
+						<div class="link" onclick="goCommon('/sample/neo')">Neoauto</div>
+                        <div class="link" onclick="goCommon('/store')">Neoauto Store</div>
+			</div>
+			<div class="col-md-3">
+						<h4>RELATED SERVICE</h4>
+
+						<div class="link">돌파구닷컴</div>
+						<div class="link"><span class="link" onclick="goCommon('/mom')">썬테크 MOM</span></div>
+						<div class="link"><span class="link" onclick="goCommon('/neo')">네오오토 CMS</span></div>
+			</div>
+			<div class="col-md-3">
+						<h4>FOLLOW US</h4>
+
+						<div>
+							<img src="http://socon.nizkorea.com/socon/images/faceBtn.png" />
+							<img src="http://socon.nizkorea.com/socon/images/twBtn.png" />
+							<img src="http://socon.nizkorea.com/socon/images/blogBtn.png" />
+							<img src="http://socon.nizkorea.com/socon/images/info03.jpg" />
+						</div>
+			</div>
+		</div>
+		</div>
+
+	</footer>
+
+
+	<footer class="container-fluid " style="background:#242424">
+		<div class="container">
+			<div>
+				<span class="title">사업장소재지</span>
+				<span class="data">서울시 금천구 가산디지털1로171. SKV1 bldg 407 (가산동, SKV1)</span>
+				<span class="sep">|</span>
+				<span class="title">대표전화</span>
+				<span class="data">1661-9339</span>
+				<span class="sep">|</span>
+				<span class="title">사업자등록번호</span>
+				<span class="data">344-85-00076</span>
+			</div>
+			<div>
+				<span class="title">법인등록번호</span>
+				<span class="data">110111-4943646</span>
+				<span class="sep">|</span>
+				<span class="title">개인정보보호책임자</span>
+				<span class="data">이성근 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b2dad3dfd3dcdbf2dcd3c4d7c09cd1dddf">[email&#160;protected]</a></span>
+			</div>
+
+			<div class="copy">Copyright &copy; hamanote.com, 2012-2020. All rights reserved.</div>
+		</div>
+	</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db6edb98d33f4c23986d5222c5267596","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
 </html>
